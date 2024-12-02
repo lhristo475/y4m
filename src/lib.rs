@@ -503,8 +503,8 @@ impl<R: Read> Decoder<R> {
 /// A single frame.
 #[derive(Debug)]
 pub struct Frame<'f> {
-    planes: [&'f [u8]; 3],
-    raw_params: Option<Vec<u8>>,
+    pub planes: [&'f [u8]; 3],
+    pub raw_params: Option<Vec<u8>>,
 }
 
 impl<'f> Frame<'f> {
@@ -540,7 +540,7 @@ impl<'f> Frame<'f> {
             raw_params,
         )
     }
-
+    
     /// Return Y (first) plane.
     #[inline]
     pub fn get_y_plane(&self) -> &[u8] {
